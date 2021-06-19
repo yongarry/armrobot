@@ -1,0 +1,98 @@
+<robot name="armrobot_description">
+    <link name="base_link">
+        
+        <visual>
+            <geometry>
+                <mesh filename="package://armrobot/meshes/base_link v1.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="joint_1" type="revolute">
+        <origin xyz="0.0 0.0 0.0325" rpy="0.0 0.0 0.0"/>
+        <parent link="base_link"/>
+        <child link="link1"/>
+        <axis xyz="0.0 0.0 1.0"/>
+        <limit lower="-3.14" upper="3.14" effort="0.0" velocity="0.0"/>
+    </joint>
+
+    <link name="link1">
+       
+        <visual> 
+        <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 0.0"/>
+            <geometry>
+                <mesh filename="package://armrobot/meshes/Base_rotator v1.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="joint_2" type="revolute">
+        <origin xyz="-0.010 0.0 0.021442" rpy="0.0 0.0 0.0"/>
+        <parent link="link1"/>
+        <child link="link2"/>
+        <axis xyz="1.0 0.0 0.0"/>
+        <limit lower="-1.57" upper="1.57" effort="0.0" velocity="0.0"/>
+    </joint>
+    
+    
+    <link name="link2">
+       
+        <visual> 
+            <geometry>
+                <mesh filename="package://armrobot/meshes/Arm90mm v1.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+    </link>
+
+
+    <joint name="joint_3" type="revolute">
+        <origin xyz="0.0 0.0 0.09" rpy="0.0 0.0 0.0"/>
+        <parent link="link2"/>
+        <child link="link3"/>
+        <axis xyz="1.0 0.0 0.0"/>
+        <limit lower="-1.57" upper="1.57" effort="0.0" velocity="0.0"/>
+    </joint>
+
+    <link name="link3">
+       
+        <visual> 
+            <geometry>
+                <mesh filename="package://armrobot/meshes/Arm60mm v1.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="joint_4" type="revolute">
+        <origin xyz="0.0 -0.06 0.0" rpy="0.0 0.0 0.0"/>
+        <parent link="link3"/>
+        <child link="link4"/>
+        <axis xyz="1.0 0.0 0.0"/>
+        <limit lower="-1.57" upper="1.57" effort="0.0" velocity="0.0"/>
+    </joint>
+
+    <link name="link4">
+       
+        <visual> 
+            <geometry>
+                <mesh filename="package://armrobot/meshes/ArmWrist v1.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+    </link>
+
+    <joint name="joint_5" type="revolute">
+        <origin xyz="0.011072 -0.0315 -0.019757" rpy="0.0 0.0 0.0"/>
+        <parent link="link4"/>
+        <child link="link5"/>
+        <axis xyz="0.0 -1.0 0.0"/>
+        <limit lower="-1.57" upper="1.57" effort="0.0" velocity="0.0"/>
+    </joint>
+
+    <link name="link5">
+       
+        <visual> 
+            <geometry>
+                <mesh filename="package://armrobot/meshes/Hand v1.stl" scale="0.001 0.001 0.001" />
+            </geometry>
+        </visual>
+    </link>
+</robot>
